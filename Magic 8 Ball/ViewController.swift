@@ -20,13 +20,6 @@ class ViewController: UIViewController {
         self.magicBallView.animateShake()
     }
     
-    override func viewDidLoad() {
-        
-        
-        super.viewDidLoad()
-    }
-    
-    
     override func becomeFirstResponder() -> Bool {
         return true
     }
