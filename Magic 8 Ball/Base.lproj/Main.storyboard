@@ -25,9 +25,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTo-qY-gfw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTo-qY-gfw">
                                 <rect key="frame" x="86" y="710" width="242" height="54"/>
                                 <color key="backgroundColor" red="0.32054041660636401" green="0.56968004507032244" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="trB-W4-LKm"/>
+                                </constraints>
                                 <state key="normal" title="What do you think?">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
@@ -44,9 +47,14 @@
                             <constraint firstItem="S63-aH-Eh5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="09f-TL-vnF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uTo-qY-gfw" secondAttribute="trailing" constant="86" id="6ks-h5-wq2"/>
                             <constraint firstItem="S63-aH-Eh5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8ZG-TP-tsP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uTo-qY-gfw" secondAttribute="bottom" constant="98" id="Btc-AE-3j6"/>
                             <constraint firstItem="uTo-qY-gfw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DAL-rc-zLB"/>
+                            <constraint firstItem="uTo-qY-gfw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="HUR-5V-rjg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uTo-qY-gfw" secondAttribute="trailing" constant="86" id="LtP-XT-lrS"/>
+                            <constraint firstItem="uTo-qY-gfw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TPs-ZA-K7L"/>
                             <constraint firstItem="uTo-qY-gfw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xui-my-wzk"/>
                             <constraint firstItem="OwI-QQ-y0V" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-5" id="d5K-k8-RsU"/>
+                            <constraint firstItem="uTo-qY-gfw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="feb-gM-xMt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uTo-qY-gfw" secondAttribute="bottom" constant="98" id="lsz-kR-gUy"/>
                             <constraint firstItem="S63-aH-Eh5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="sL9-M1-bl3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S63-aH-Eh5" secondAttribute="trailing" constant="20" id="wxQ-D1-Elb"/>
