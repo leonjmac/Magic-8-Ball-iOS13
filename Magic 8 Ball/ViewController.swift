@@ -10,14 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var magicBallView: UIImageView!
+    @IBOutlet weak var magicBallView: UIView!
+    @IBOutlet weak var magicBallLabel: UILabel!
     @IBOutlet weak var askButton: UIButton!
     
-    let ballArray = [#imageLiteral(resourceName: "ball1"),#imageLiteral(resourceName: "ball2"),#imageLiteral(resourceName: "ball3"),#imageLiteral(resourceName: "ball4"),#imageLiteral(resourceName: "ball5")]
+    let fortunesArray = ["Don\'t count on it", "Seems unlikely", "Perhaps", "Ask me later", "Yes", "Nope", "¯\\_(ツ)_/¯" ]
     
     @IBAction func shake(_ sender: Any) {
-        self.magicBallView.image = ballArray.randomElement()
         self.magicBallView.animateShake()
+        self.magicBallLabel.text = fortunesArray.randomElement()?.uppercased()
     }
     
     override func becomeFirstResponder() -> Bool {
@@ -33,9 +34,31 @@ class ViewController: UIViewController {
 
 extension UIView {
     func animateShake() {
-        self.transform = CGAffineTransform(translationX: 25, y: 0)
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+        // Down
+        self.transform = CGAffineTransform(translationX: 0, y: 25)
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             self.transform = CGAffineTransform.identity
         }, completion: nil)
+        
+        
+        // Delay by 0.5 sec then
+        
+                
+        // Down + fade text to 0.5
+        
+        // Up + fade text to 0.0
+        
+        // Down + bubble up
+        
+        // Up + bubble up
+        
+        // Down + bubble up
+        
+        // Up + bubble up + fade new text to 0.5
+        
+        // Down + bubble up + new text to 1
+        
+        // Rest + bubble up
+        
     }
 }
