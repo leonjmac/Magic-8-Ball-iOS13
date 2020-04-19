@@ -15,30 +15,56 @@ class ViewController: UIViewController {
     @IBOutlet weak var askButton: UIButton!
     
     let fortunesArray = ["Don\'t count on it", "Seems unlikely", "Perhaps", "Ask me later", "Yes", "Nope", "¯\\_(ツ)_/¯" ]
-    var starsArray: [CAShapeLayer] = []
+    var starsView = UIView()
     
     override func viewDidLoad() {
-        // Generate 10 stars
-        for i in 0..<10 {
-            // Randomise size
-            self.starsArray.append(drawDiamond(CGSize(width: 75, height: 100)))
+        var starsArray: [CAShapeLayer] = []
+        for _ in 0..<10 {
+            // Draw  stars
+            starsArray.append(drawDiamond(CGSize(width: 37.5, height: 50.0)))
         }
+        
+        self.starsView = UIView(frame: self.view.frame)
+        _ = starsArray.map({ shape in
+            let star = UIView()
+            star.layer.addSublayer(shape)
+            let xOrigin = Int.random(in: (Int(self.magicBallView.frame.origin.x) + 40)...(Int(self.magicBallView.frame.size.width) - 40))
+            let yOrigin = Int.random(in: (Int(self.magicBallView.frame.origin.y) + 40)...(Int(self.magicBallView.frame.size.height) - 40))
+            star.frame.origin = CGPoint(x: xOrigin, y: yOrigin)
+            starsView.addSubview(star)
+        })
+        // Ensure stars are inserted below other UI elements
+        self.view.insertSubview(starsView, at: 0)
     }
     
     @IBAction func shake(_ sender: Any) {
         self.askButton.isEnabled.toggle()
+        _ = self.starsView.subviews.map { view in
+            self.pulse(shape: view, withDelay: 0.125 * Double(Int.random(in: 0..<5)))
+        }
         self.swapMagicLabelText((fortunesArray.randomElement()?.uppercased())!)
         self.magicBallView.animateShake(withCompletion: { finished in
             self.askButton.isEnabled = finished
         })
     }
     
+    func pulse(shape:UIView, withDelay delay: Double = 0.0) {
+        shape.layer.anchorPoint = CGPoint(x: shape.frame.width / 2.0, y:shape.frame.height / 2.0)
+        UIView.animate(withDuration: 0.5, delay: delay, options: [.curveEaseInOut, .autoreverse], animations: {
+            shape.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            shape.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }, completion: { finished in
+            shape.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        })
+    }
+    
     func swapMagicLabelText(_ value: String) {
         UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: {
             self.magicBallLabel.alpha = 0.0
-        }, completion: { finished in
-            self.magicBallLabel.text = value
-            UIView.animate(withDuration: 0.5, animations: {
+        }, completion: {
+            finished in
+                self.magicBallLabel.text = value
+                UIView.animate(withDuration: 0.5, animations: {
                 self.magicBallLabel.alpha = 1.0
             })
         })
